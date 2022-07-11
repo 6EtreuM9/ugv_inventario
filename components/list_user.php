@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="css/list_user.css">
+<script src='../js/list_user.js'></script>
+
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
 
@@ -62,6 +64,9 @@
         </svg>
         <span class="tooltiptext">Eliminar</span>
       </button>
+      <!-- Confirmacion de Eliminar -->
+
+      <!-- Fin Confirmacion de Eliminar -->
     </div>
   </li>
   <li><a href="#">Agnes</a></li>
@@ -74,4 +79,3 @@
   <li><a href="#">Cindy</a></li>
 </ul>
 
-<script src='js/list_user.js'></script>

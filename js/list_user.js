@@ -17,3 +17,6 @@ function myFunction() {
       }
     }
   }
+  /*-------- boton eliminar */
+
+  /*-------- fin boton eliminar */
