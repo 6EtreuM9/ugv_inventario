@@ -1,6 +1,5 @@
-<link rel="stylesheet" href="css/list_user.css">
-<script src='../js/list_user.js'></script>
-
+<link rel="stylesheet" href="../css/list_user.css">
+<link rel="stylesheet" href="../css/button_eliminar.css">
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
 
@@ -8,7 +7,7 @@
   <li>
     <a href="#">Adele</a>
     <div>
-      <button class="tooltip button_tooltip">
+      <button class="tooltip button_tooltip" href="../components/ficha_element.php">
         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 283.5 283.5" style="enable-background:new 0 0 283.5 283.5;" xml:space="preserve"  height="20" width="20">
           <path d="M-0.4,139.5c1.8-6.4,6.6-10.7,10.8-15.5c14.8-16.9,31.2-32.2,49.9-44.8C78.7,66.6,98.6,57,120.8,52.9
             c19.8-3.6,39.3-1.9,58.3,4.5c26.4,8.8,49.2,23.9,69.4,42.7c10.6,9.9,20.3,20.9,30.1,31.6c5.9,6.4,5.7,14.2,0.2,20.8
@@ -37,7 +36,7 @@
         </svg>
       <span class="tooltiptext">Editar</span>
       </button>
-      <button class="tooltip button_tooltip">
+      <button class="tooltip button_tooltip" onclick="document.getElementById('id01').style.display='block'">
         <svg version="1.1" id="Capa_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 566.93 566.93" style="enable-background:new 0 0 566.93 566.93;" xml:space="preserve" height="20" width="20">
           <path d="M92.14,200.61c128.06,0,255.64,0,383.92,0c-0.63,14.17-1.2,27.98-1.85,41.78c-2.33,48.97-4.7,97.93-7.04,146.89
             c-2.08,43.5-4.05,87.01-6.26,130.5c-1.35,26.54-22.45,46.84-49.12,47c-40.18,0.24-80.37,0.07-120.56,0.08
@@ -64,10 +63,24 @@
         </svg>
         <span class="tooltiptext">Eliminar</span>
       </button>
-      <!-- Confirmacion de Eliminar -->
 
-      <!-- Fin Confirmacion de Eliminar -->
     </div>
+    <!-- Confirmacion de Eliminar -->
+    <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form class="modal-content" action="/action_page.php">
+            <div class="container">
+                <h1>Delete Account</h1>
+                <p>Are you sure you want to delete your account?</p>
+
+                <div class="clearfix">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                    <button type="button" class="deletebtn">Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Fin Confirmacion de Eliminar -->
   </li>
   <li><a href="#">Agnes</a></li>
 
@@ -78,4 +91,16 @@
   <li><a href="#">Christina</a></li>
   <li><a href="#">Cindy</a></li>
 </ul>
+<script src='../js/list_user.js'></script>
+<script>
+  // Get the modal
+  var modal = document.getElementById('id01');
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
+</script>
 

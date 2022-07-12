@@ -65,7 +65,7 @@
   display: inline-block;
  }
  
- .tooltip .tooltiptext {
+.tooltip .tooltiptext {
   visibility: hidden;
   width: 4em;
   background-color: rgba(0, 0, 0, 0.253);
@@ -77,9 +77,9 @@
   z-index: 1;
   top: 25%;
   left: 110%;
- }
- 
- .tooltip .tooltiptext::after {
+}
+
+.tooltip .tooltiptext::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -88,12 +88,8 @@
   border-width: 5px;
   border-style: solid;
   border-color: transparent rgba(0, 0, 0, 0.253) transparent transparent;
- }
+}
  
- .tooltip:hover .tooltiptext {
+.tooltip:hover .tooltiptext {
   visibility: visible;
- }
-
-/*  ------------------------------- botton eliminar*/
-
- /* ''''''''''''''''''''''''''''''''fin botton eliminar*/
+}
