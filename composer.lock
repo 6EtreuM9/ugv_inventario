@@ -1,0 +1,53 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "f412b8be118a14d43b3c597ec870834a",
+    "packages": [
+        {
+            "name": "easy-projects/simple-router",
+            "version": "v7.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FrederickMontiel/SimpleRouter-php.git",
+                "reference": "43d54a7601311137f31ea414c11f1f5fcde1d4d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FrederickMontiel/SimpleRouter-php/zipball/43d54a7601311137f31ea414c11f1f5fcde1d4d9",
+                "reference": "43d54a7601311137f31ea414c11f1f5fcde1d4d9",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EasyProjects\\SimpleRouter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Frederick Montiel",
+                    "email": "fmontiel@easyprojects.tech"
+                }
+            ],
+            "description": "Libreria para crear rutas en php.",
+            "support": {
+                "issues": "https://github.com/FrederickMontiel/SimpleRouter-php/issues",
+                "source": "https://github.com/FrederickMontiel/SimpleRouter-php/tree/v7.1.0"
+            },
+            "time": "2022-05-24T02:54:53+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.2.0"
+}

@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <title>Document</title>
+<?php
+    //Include composer
+    require_once __DIR__.'/vendor/autoload.php';
     
-</head>
-<body>
-    <?php 
-    include 'components/navbar.php';
-    ?>
-    <br>
+    use EasyProjects\SimpleRouter\Router as Router;
+    use EasyProjects\SimpleRouter\Request as Request;
+    use EasyProjects\SimpleRouter\Response as Response;
 
+    $router = new Router;
     
-</body>
-</html>
+    //If you need allow petitions from javascript, use
+    $router->cors(
+        ["easyprojects.tech", "google.com"],
+        "*",
+        "*"
+    );
