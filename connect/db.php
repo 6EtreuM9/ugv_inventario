@@ -1,10 +1,13 @@
 <?php
-
-$enlace = mysqli_connect('localhost', 'Rigel', '1234');
-if (!$enlace) {
-    die('No pudo conectarse: ' . mysqli_connect_error());
-}
-echo 'Conectado satisfactoriamente <br>';
-//mysqli_close($enlace);
-
+$servidor = "localhost";
+$usuario = "Rigel";
+$contrasena = "1234";
+//validacion de error nivel maquina
+try {
+    $conexion = new PDO("mysql:host=$servidor;dbname=ugv_database", $usuario, $contrasena);
+    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Conexion Establecida";
+} catch (PDOException $error) {
+    echo "Conexion erronea".$error;
+};
 ?>

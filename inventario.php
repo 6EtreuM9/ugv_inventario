@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/button_insert.css">
     <title>Document</title>
 </head>
 <body>
 <?php 
     include 'components/navbar.php';
 ?>
-    <br>
-    <?php
-    include 'components/list_user.php';
-    ?>
+<br>
+<div><a href="components/insert_object.php">
+    <button type="submit" class="button_insert_register"><span>Nuevo Registro</span></button>
+</a></div>
+<br>
+<?php
+include 'components/list_user.php';
+?>
 </body>
 </html>
