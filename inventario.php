@@ -8,11 +8,11 @@
 </head>
 <body>
 <?php 
-    include '../components/navbar.php';
-    ?>
+    include 'components/navbar.php';
+?>
     <br>
     <?php
-    include '../components/list_user.php';
+    include 'components/list_user.php';
     ?>
 </body>
 </html>

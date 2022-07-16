@@ -1,10 +1,10 @@
 <?php
 
-$enlace =  mysql_connect('localhost', 'usuario_mysql', 'contraseña_mysql');
+$enlace = mysqli_connect('localhost', 'Rigel', '1234');
 if (!$enlace) {
-    die('No pudo conectarse: ' . mysql_error());
+    die('No pudo conectarse: ' . mysqli_error());
 }
-echo 'Conectado satisfactoriamente';
-mysql_close($enlace);
+echo 'Conectado satisfactoriamente <br>';
+//mysqli_close($enlace);
 
 ?>

@@ -1,11 +1,27 @@
-<link rel="stylesheet" href="../css/list_user.css">
-<link rel="stylesheet" href="../css/button_eliminar.css">
+<link rel="stylesheet" href="css/list_user.css">
+<link rel="stylesheet" href="css/button_eliminar.css">
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
 
 <ul id="myUL">
-  <li>
-    <a href="#">Adele</a>
+
+<?php
+include "connect/db.php";
+
+/* comprueba la conexión */
+if (mysqli_connect_errno()) {
+    printf("Connect failed: %s\n", mysqli_connect_error());
+    exit();
+}
+/**Seleccion tabla inventory = inventario */
+$setencia = "SELECT * FROM inventory";
+//Almacena los datos de la tabla seleccinada en la variable $resultado
+$resultado = mysqli_query($enlace , $setencia);
+//Bucle para imprimir los datos
+while ($filas = mysqli_fetch_assoc($resultado)) {
+  echo `
+    <li>
+    <a href="#">`; echo $filas['object_name'];  echo `</a>
     <div>
       <button class="tooltip button_tooltip" href="../components/ficha_element.php">
         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 283.5 283.5" style="enable-background:new 0 0 283.5 283.5;" xml:space="preserve"  height="20" width="20">
@@ -18,7 +34,7 @@
             C166.5,96.8,186.8,117.2,186.8,142.3z M137.8,114c-13.7-1-26.1,12.7-25,24.9c4.8,0,9.7,0,14.5,0c0.9-5.5,3.7-9.1,9.2-10.1
             c0.5-0.1,1.2-0.9,1.2-1.4C137.8,123,137.8,118.5,137.8,114z"/>
         </svg>
-      <span class="tooltiptext">Ver</span>
+        <span class="tooltiptext">Ver</span>
       </button>
       <button class="tooltip button_tooltip">
         <svg version="1.1" id="Capa_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 283.5 283.5" style="enable-background:new 0 0 283.5 283.5;" xml:space="preserve" height="20" width="20">
@@ -34,9 +50,9 @@
           c-1.7,1.7-4.2,3.1-6.6,3.6c-12.9,2.8-25.8,5.2-38.7,7.8c-5.3,1.1-8.8-2.3-7.8-7.5c2.7-13.4,5.4-26.9,8.2-40.3c0.3-1.4,1.1-3,2.1-4
           c30.7-30.8,61.4-61.5,92.2-92.2C203.8,38.7,204,38.6,204.1,38.5z"/>
         </svg>
-      <span class="tooltiptext">Editar</span>
+        <span class="tooltiptext">Editar</span>
       </button>
-      <button class="tooltip button_tooltip" onclick="document.getElementById('id01').style.display='block'">
+      <button class="tooltip button_tooltip" onclick="document.getElementById('id01')" style.display='block'">
         <svg version="1.1" id="Capa_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 566.93 566.93" style="enable-background:new 0 0 566.93 566.93;" xml:space="preserve" height="20" width="20">
           <path d="M92.14,200.61c128.06,0,255.64,0,383.92,0c-0.63,14.17-1.2,27.98-1.85,41.78c-2.33,48.97-4.7,97.93-7.04,146.89
             c-2.08,43.5-4.05,87.01-6.26,130.5c-1.35,26.54-22.45,46.84-49.12,47c-40.18,0.24-80.37,0.07-120.56,0.08
@@ -63,35 +79,40 @@
         </svg>
         <span class="tooltiptext">Eliminar</span>
       </button>
-
     </div>
-    <!-- Confirmacion de Eliminar -->
+
     <div id="id01" class="modal">
-        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-        <form class="modal-content" action="/action_page.php">
-            <div class="container">
-                <h1>Delete Account</h1>
-                <p>Are you sure you want to delete your account?</p>
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <form class="modal-content" action="/action_page.php">
+        <div class="container">
+          <h1>Delete Account</h1>
+          <p>Are you sure you want to delete your account?</p>
 
-                <div class="clearfix">
-                    <button type="button" class="cancelbtn">Cancel</button>
-                    <button type="button" class="deletebtn">Delete</button>
-                </div>
-            </div>
-        </form>
+          <div class="clearfix">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <button type="button" class="deletebtn">Delete</button>
+          </div>
+        </div>
+      </form>
     </div>
-    <!-- Fin Confirmacion de Eliminar -->
-  </li>
-  <li><a href="#">Agnes</a></li>
+  </li>`;
+}
 
-  <li><a href="#">Billy</a></li>
-  <li><a href="#">Bob</a></li>
+/* cambia de test bd a world bd */
+mysqli_select_db($enlace, "ugv_database");
 
-  <li><a href="#">Calvin</a></li>
-  <li><a href="#">Christina</a></li>
-  <li><a href="#">Cindy</a></li>
+/* devuelve el nombre de la base de datos actualmente seleccionada */
+if ($result = mysqli_query($enlace, "SELECT DATABASE()")) {
+    $row = mysqli_fetch_row($result);
+    printf("Default database is %s.\n", $row[0]);
+    mysqli_free_result($result);}
+
+//mysqli_close($link);
+
+?>
 </ul>
-<script src='../js/list_user.js'></script>
+
+<script src='js/list_user.js'></script>
 <script>
   // Get the modal
   var modal = document.getElementById('id01');
