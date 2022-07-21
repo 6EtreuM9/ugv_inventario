@@ -12,12 +12,16 @@
     include 'components/navbar.php';
 ?>
 <br>
-<div><a href="components/insert_object.php">
+<div><a href="insert_object.php">
     <button type="submit" class="button_insert_register"><span>Nuevo Registro</span></button>
 </a></div>
 <br>
+
 <?php
+
+include 'connect/db.php';
 include 'components/list_user.php';
+
 ?>
 </body>
 </html>

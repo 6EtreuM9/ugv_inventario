@@ -1,13 +1,16 @@
 <?php
-$servidor = "localhost";
-$usuario = "Rigel";
-$contrasena = "1234";
-//validacion de error nivel maquina
-try {
-    $conexion = new PDO("mysql:host=$servidor;dbname=ugv_database", $usuario, $contrasena);
-    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Conexion Establecida";
-} catch (PDOException $error) {
-    echo "Conexion erronea".$error;
-};
+$servername = "localhost";
+$username = "Rigel";
+$password = "1234";
+$dbname = "ugv_database";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+echo "Connected successfully";
+
 ?>
