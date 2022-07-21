@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/button_insert.css">
+    <link rel="stylesheet" href="css/list_object.css">
     <title>Document</title>
 </head>
 <body>
@@ -20,7 +21,7 @@
 <?php
 
 include 'connect/db.php';
-include 'components/list_user.php';
+include 'components/list_object.php';
 
 ?>
 </body>
