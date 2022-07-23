@@ -1,42 +1,91 @@
 <link rel="stylesheet" href="css/conctact.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<?php
+//------------------Valiadacion de datos - Requeridos
+$objnameErr = $objnsErr = $objdescErr = $objdepErr = "";
+$objname = $objns = $objdesc = $comment = $objdep = "";
+
+//------------------Valiadacion de datos - Requeridos
+$objnameErr = $objnsErr = $objdescErr = $objdepErr = "";
+$objname = $objns = $objdesc = $comment = $objdep = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  //--------------------------------------objeto nombre
+  if (empty($_POST["objname"])) {
+    $objnameErr = "Name is required";
+  } else {
+    $objname = test_input($_POST["objname"]);
+  }
+  //-------------------------------------objeto numero de serie
+  if (empty($_POST["objns"])) {
+    $objnsErr = "Email is required";
+  } else {
+    $objns = test_input($_POST["objns"]);
+  }
+  //-------------------------------------objeto descripcion
+  if (empty($_POST["objdesc"])) {
+    $objdescErr = "Descripcion requerida";
+  } else {
+    $objdesc = test_input($_POST["objdesc"]);
+  }
+//---------------------------------------objeto departamento
+  if (empty($_POST["objdep"])) {
+    $objdepErr = "";
+  } else {
+    $objdep = test_input($_POST["objdep"]);
+  }
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+?>
+
 
 <div class="container">
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+    <form id="formInsetData" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
-        <label for="objname">Nombre</label>
+        <label for="objname">Nombre</label><span class="error">  * <?php echo $objnameErr;?></span>
         <input type="text" id="id_objname" name="objname" placeholder="Marca, Modelo, Color..">
 
-        <label for="objns">Numero de Serie</label>
+        <label for="objns">Numero de Serie</label><span class="error">  * <?php echo $objnsErr;?></span>
         <input type="text" id="id_objns" name="objns" placeholder="Numero de Serie..">
-
-        <label for="objdesc">Descripción</label>
+        
+        <label for="objdesc">Descripción</label><span class="error">  * <?php echo $objdescErr;?></span>
         <textarea id="id_subject" name="objdesc" placeholder="Write something.." style="height:200px"></textarea>
         
-        <label for="objdep">Departamento</label>
+        
+
+        <label for="objdep">Departamento</label><span class="error">  * <?php echo $objdepErr;?></span>
         <select id="id_objdepartament" name="objdep">
             <option value="administracion">Administración</option>
             <option value="academico">Academico</option>
             <option value="direccion">Dirección</option>
             <option value="planeacion">Planeación</option>
-        </select>        
+        </select>
 
-        <input type="submit" value="Submit">
+        <button type="button" value="Submit" id="Bt_insert">Enviar</button>
 
     </form>
-
-<?php
-//.........Conexion a la data base
-include 'connect/db.php';
-//.........Validacion de los datos
-//........ Insertar datos
-$sql = "INSERT INTO inventory (object_name, object_ns, object_description, object_id_department)
-VALUES ('Teclado Vorago', '9089789012', 'Verde, Usb', 'administracion')";
-
-if (mysqli_query($conn, $sql)) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
-
-?>
+    <div id="respuesta"></div>
 </div>
+
+<script>
+
+  $('#Bt_insert').click(function(){
+    $.ajax({
+      url:'connect/insert_object.php',
+      type:'POST',
+      data: $('#formInsetData').serialize(),
+      success: function (res) {
+        $('#respuesta').html(res);
+      }
+    });
+  });
+</script>                       
