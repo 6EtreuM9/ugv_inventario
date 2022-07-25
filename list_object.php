@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="css/list_object.css">
-
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
 
 <ul id="myUL">
@@ -90,8 +88,6 @@ $conn->close();
 //....................Eliminar Objetos
 ?>
 </ul>
-
-
 
 <script src='js/list_user.js'></script>
 

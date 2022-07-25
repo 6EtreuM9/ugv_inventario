@@ -21,7 +21,7 @@
 <?php
 
 include 'connect/db.php';
-include 'components/list_object.php';
+include 'list_object.php';
 
 ?>
 </body>

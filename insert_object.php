@@ -4,67 +4,62 @@
 
 
 <?php
-//------------------conexion a la base datos
-include '/connect/db.php';
-//------------------Valiadacion de datos - Requeridos
+
+include 'connect/db.php';
+
 $objnameErr = $objnsErr = $objdescErr = $objdepErr = "";
 $objname = $objns = $objdesc = $objdep = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  # code...
+  
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    //--------------------------------------objeto nombre
+
     if (empty($_POST["objname"])) {
       $objnameErr = "Name is required";
-    } else {
-      $objname = test_input($_POST["objname"]);
+    } else { if (!test_input($_POST["objname"])) {
+      $objnameErr = "Texto no permitido";
+      } else{ if ( strlen($_POST["objname"]) > 255 ) {
+          $objnameErr = "255 caracteres permitidos";
+        } else {
+          $objname = $_POST["objname"];
+        }        
+      }      
     }
-    //-------------------------------------objeto numero de serie
+
     if (empty($_POST["objns"])) {
       $objnsErr = "Email is required";
     } else {
       $objns = test_input($_POST["objns"]);
     }
-    //-------------------------------------objeto descripcion
+
     if (empty($_POST["objdesc"])) {
       $objdescErr = "Descripcion requerida";
     } else {
       $objdesc = test_input($_POST["objdesc"]);
     }
-  //---------------------------------------objeto departamento
+
     if (empty($_POST["objdep"])) {
       $objdepErr = "Departamento requerido";
     } else {
       $objdep = test_input($_POST["objdep"]);
     }
   }
-  //-------------------Validacion de datos
-  function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-    
-  }
-  //-------------------Insercion de datos
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo "Estos son los datos registrados <br>";
-    echo "El nombre del objeto es: ".$_POST['objname']."<br>";
-    echo "El numero de serie es: ".$_POST['objns']."<br>";
-    echo "La descripcion es: ".$_POST['objdesc']."<br>";
-    echo "Pertenece al departamento: ".$_POST['objdep']; 
-    
-    
-    $sql = "INSERT INTO inventory (object_name, object_ns, object_description, object_id_department)
-    VALUES ("$_POST['objname'], $_POST['objns'], $_POST['objdesc'], $_POST['objdep']")";
-    
-    if (mysqli_query($conn, $sql)) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  
+    function test_input($data) {
+      $data = trim($data);
+      $data = stripslashes($data);
+      $data = htmlspecialchars($data);
+      return $data;
     }
-  }
-} 
+    
+      /*$sql = "INSERT INTO inventory (object_name, object_ns, object_description, object_id_department)
+      VALUES ('$objname', '$objns', '$objdesc', '$objdep')";
+      
+      if (mysqli_query($conn, $sql)) {
+          echo "New record created successfully";
+      } else {
+          echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+      }*/
+
 
 ?>
 
