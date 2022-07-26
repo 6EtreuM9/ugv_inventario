@@ -8,8 +8,8 @@
     
 </head>
 <body>
-    <?php 
-    include 'components/navbar.php';
+    <?php     
+    include 'public_components/navbar.php';
     ?>
     <br>
 
