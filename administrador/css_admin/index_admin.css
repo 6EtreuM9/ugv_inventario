@@ -5,13 +5,12 @@
     color: #ffffff;    
 }
 body{
-    background-color: #ffffff;
-    
+    background: url(/ugv_inventario/administrador/img/fondo.gif) no-repeat center fixed;
+    background-size: cover;
 }
 
 .content_login{
     margin: auto;
-    border: solid 2px;
     display: flex;
     height:100vh; 
 }
@@ -23,7 +22,7 @@ body{
         align-items: center;
         justify-content: center;
         flex-direction: column; /* */           
-        background-image: radial-gradient(#1B1042 2%,#431881 98%);
+        /*background-image: radial-gradient(#1B1042 2%,#431881 98%);*/        
     }   
         .icono_logo{
             width: 250px;
@@ -54,7 +53,12 @@ body{
             }
                 .login_button_click{
                     width: 100px;
-                    color: #1B1042;
+                    color: #ffffff;
+                    border: solid #1B1042 2px;
+                    border-radius: 30px;
+                    padding: 8px 15px;
+                    background-image: linear-gradient(90deg, #5e2aa7,#6e5bb3);
+                    font-size: 18px;
                     display: flex;
                     margin: auto;
                     justify-content: center;                    

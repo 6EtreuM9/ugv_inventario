@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css_admin/index_admin.css">
+    <link rel="stylesheet" href="css_admin/button_closet.css">
 </head>
 <body>
     <div>
-    <button class="noselect"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/></svg></button>
+    <?php $url_home = "http://".$_SERVER['HTTP_HOST']."/ugv_inventario/index.php"?> 
+    <a href="<?php echo $url_home ?>">
+        <button class="noselect button_closet" ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/></svg></button>
+    </a>
     </div>
     <div class="content_login">
         <div class="div_login">
@@ -28,7 +32,6 @@
                 </form>
             </div>
         </div>
-        <div class="div_login_imagen"></div>
     </div>
 </body>
 </html>
