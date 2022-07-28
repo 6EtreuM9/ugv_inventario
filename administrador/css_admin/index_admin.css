@@ -1,13 +1,4 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: #ffffff;    
-}
-body{
-    background: url(/ugv_inventario/administrador/img/fondo.gif) no-repeat center fixed;
-    background-size: cover;
-}
+
 
 .content_login{
     margin: auto;

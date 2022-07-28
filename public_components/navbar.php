@@ -12,7 +12,6 @@
   <a href="<?php echo $url_consulta ?>">Consulta</a>
   <a href="<?php echo $url_contacto ?>">Contacto</a>
   <div class="login-container">    
-      <a href="<?php echo $url_login ?>">Login</a>
-    </form>
+      <a href="<?php echo $url_login ?>">Login Admin</a>
   </div>
 </div>

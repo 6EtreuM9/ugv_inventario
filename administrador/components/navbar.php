@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="css/navbar.css">
+<?php $url_navbar_css = "http://".$_SERVER['HTTP_HOST']."/ugv_inventario/css/navbar.css"?>
+<link rel="stylesheet" href=" <?php $url_navbar_css ?>">
 
 <div class="topnav">
   <a class="active" href="/ugv_inventario/index.php">Inicio</a>

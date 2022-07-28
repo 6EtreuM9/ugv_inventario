@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <?php $url_css_listObj = "http://".$_SERVER['HTTP_HOST']."/ugv_inventario/css/list_object.css"?>    
+    <?php $url_css_listObj = "http://".$_SERVER['HTTP_HOST']."/ugv_inventario/css/body.css"?>    
     <link rel="stylesheet" href="<?php echo $url_css_listObj ?>">
 </head>
 <body>
