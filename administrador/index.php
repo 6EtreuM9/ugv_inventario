@@ -1,3 +1,8 @@
+<?php
+if ($_POST) {
+    header('Location:/ugv_inventario/administrador/paginas/inicio.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +17,7 @@
     <div>
     <?php $url_home = "http://".$_SERVER['HTTP_HOST']."/ugv_inventario/index.php"?> 
     <a href="<?php echo $url_home ?>">
-        <button class="noselect button_closet" ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/></svg></button>
+        <button  class="noselect button_closet" ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/></svg></button>
     </a>
     </div>
     <div class="content_login">
@@ -21,14 +26,14 @@
             <h1>Bienvenido</h1>
             <p>Administrador</p> <br>
             <div class="div_form_login">
-                <form action="">
+                <form method="POST">
                     <label for="login_name">Usuario</label> <br>
                     <input type="text" name="login_name" id="">
                     <br>
                     <label for="login_pass">Contraseña</label> <br>
                     <input type="password" name="login_pass" id="">
                     <br><br>
-                    <input type="button" value="login"  class="login_button_click" name="">
+                    <button type="submit" class="login_button_click" name="">Entrar</button>
                 </form>
             </div>
         </div>
