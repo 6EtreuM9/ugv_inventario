@@ -1,5 +1,6 @@
 .cont_view{
-  width: 800px;
+  width: 70%;
+  min-width: 280px;
   margin: auto;
 }
 
@@ -11,22 +12,62 @@
     font-size: 16px; /* Increase font-size */
     padding: 12px 20px 12px 40px; /* Add some padding */
     border: 1px solid #ddd; /* Add a grey border */
+    border-radius: 30px;
     margin-bottom: 12px; /* Add some space below the input */
   }
   
   #myUL {
     /* Remove default list styling */
+    background-color: #ddd;
+    border-radius: 30px;
+    height: 90%;
+    max-height: 400px;
     list-style-type: none;
-    padding: 0;
+    padding: 15px;
     margin: 0;
+    overflow-y:inherit;
+    overflow-x: hidden;
   }
+    /*Estilo Scroll*/
+    
+    /* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
+
+    .scroll_css::-webkit-scrollbar {
+      -webkit-appearance: none;
+    }
+
+    .scroll_css::-webkit-scrollbar:vertical {
+      width:10px;
+    }
+
+    .scroll_css::-webkit-scrollbar-button:increment,.scroll_css::-webkit-scrollbar-button {
+      display: none;
+    } 
+
+    .scroll_css::-webkit-scrollbar:horizontal {
+      height: 10px;
+    }
+
+    .scroll_css::-webkit-scrollbar-thumb {
+      background-color: #797979;
+      border-radius: 20px;
+      border: 2px solid #f1f2f3;
+    }
+
+    .scroll_css::-webkit-scrollbar-track {
+      border-radius: 10px;  
+    }
+
+
   #myUL li {
     display: flex;
+    margin-bottom: 5px;
   }
 
   #myUL li a {
     flex: 8;
     border: 1px solid #ddd; /* Add a border to all links */
+    border-radius: 30px;
     margin-top: -1px; /* Prevent double borders */
     margin-right: 10px; /* Prevent double borders */
     background-color: #f6f6f6; /* Grey background color */
@@ -40,6 +81,8 @@
   #myUL li a:hover:not(.header) {
     background-color: #eee; /* Add a hover effect to all links, except for headers */
   }
+
+
 .cont-button{
   flex: 2;
 }
@@ -52,7 +95,6 @@
   align-items: center;
   padding: 1em;
   border: 0px solid transparent;
-  background-color: rgba(100,77,237,0.08);
   border-radius: 1.25em;
   transition: all 0.2s linear;
  }
@@ -73,7 +115,7 @@
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 4em;
-  background-color: rgba(0, 0, 0, 0.253);
+  background-color: rgba(131, 24, 141, 0.253);
   color: #fff;
   text-align: center;
   border-radius: 6px;

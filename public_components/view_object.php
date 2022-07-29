@@ -5,8 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- CSS body -->
     <?php $url_css_listObj = "http://".$_SERVER['HTTP_HOST']."/ugv_inventario/css/body.css"?>    
     <link rel="stylesheet" href="<?php echo $url_css_listObj ?>">
+    <?php $url_css_listObj = "http://".$_SERVER['HTTP_HOST']."/ugv_inventario/css/list_object.css"?>    
+    <link rel="stylesheet" href="<?php echo $url_css_listObj ?>">
+
 </head>
 <body>
     <?php include "navbar.php"; ?>
@@ -15,7 +19,7 @@
     <div class="cont_view">
         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
 
-        <ul id="myUL">
+        <ul id="myUL" class="scroll_css">
 
             <?php
 
