@@ -10,7 +10,7 @@
 <div class="topnav">
   <a class="active" href="<?php echo $url_inicio ?>">Inicio</a>
   <a href="<?php echo $url_consulta ?>">Consulta</a>
-  <a href="<?php echo $url_contacto ?>">Contacto</a>
+  <!--<a href="<?php echo $url_contacto ?>">Contacto</a>-->
   <div class="login-container">    
       <a href="<?php echo $url_login ?>">Login Admin</a>
   </div>

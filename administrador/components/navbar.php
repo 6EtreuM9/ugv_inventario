@@ -11,8 +11,8 @@
 <div class="topnav">
   <a class="active" href="<?php echo $url_inicio ?>">Inicio</a>
   <a href="<?php echo $url_inventario ?>">Inventario</a>
-  <a href="<?php echo $url_usuarios ?>">Usuarios</a>
-  <a href="<?php echo $url_cerrar ?>">Cerrar</a>
+  <!--<a href="<?php //echo $url_usuarios ?>">Usuarios</a>
+  <a href="<?php //echo $url_cerrar ?>">Cerrar</a>-->
   <div class="login-container">    
       <a href="<?php echo $url_webPrincipal ?>">Pagina WEB</a>
   </div>

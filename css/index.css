@@ -1,0 +1,11 @@
+.cont_logo{
+    display: flex;
+    height:89vh;
+    margin: auto;
+    justify-content: center;
+}
+.cont_logo img{
+    width: 50%;
+    min-width: 400px;
+    margin: auto;
+}

@@ -1,11 +1,12 @@
-<link rel="stylesheet" href="css/conctact.css">
+<link rel="stylesheet" href="../css_admin/conctact.css">
+
 <style>.error {color: #FF0000;}</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
 <?php
 
-include 'connect/db.php';
+include '../connect/db.php';
 
 $objnameErr = $objnsErr = $objdescErr = $objdepErr = "";
 $objname = $objns = $objdesc = $objdep = "";

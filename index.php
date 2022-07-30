@@ -8,6 +8,7 @@
     <!-- CSS body -->
     <?php $url_body_css = "http://".$_SERVER['HTTP_HOST']."/ugv_inventario/css/body.css"?>    
     <link rel="stylesheet" href="<?php echo $url_body_css ?>">
+    <link rel="stylesheet" href="css/index.css">
     
 </head>
 <body>
@@ -15,6 +16,9 @@
     include 'public_components/navbar.php';
     ?>
     <br>
+    <div class="cont_logo">
+        <img src="administrador/img/icono_CompuVisor.png" alt="">
+    </div>
 
     
 </body>
