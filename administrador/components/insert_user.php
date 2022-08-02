@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/conctact.css">
+<link rel="stylesheet" href="../css/conctact.css">
 
 <div class="container">
     <form action="action_page.php">

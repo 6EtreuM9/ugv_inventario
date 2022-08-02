@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../css_admin/conctact.css">
+<link rel="stylesheet" href="../css_admin/conctact.css"> 
 
 <style>.error {color: #FF0000;}</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -7,14 +7,14 @@
 <?php
 
 include '../connect/db.php';
-
+$objname_resul = $objns_resul = $objdesc_resul = $objdep_resul ="";
 $objnameErr = $objnsErr = $objdescErr = $objdepErr = "";
 $objname = $objns = $objdesc = $objdep = "";
 
   
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  if (
+
     
     if (empty($_POST["objname"])) {
         $objnameErr = "Name is required";
@@ -23,68 +23,72 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else{ if ( strlen($_POST["objname"]) > 120 ) {
             $objnameErr = "120 caracteres permitidos";
           } else {
-            $objname = $_POST["objname"];
+            $objname_resul = $_POST["objname"];
           }        
         }      
       }
 
     if (empty($_POST["objns"])) {
-        $objnsErr = "Name is required";
+        $objnsErr = "Numero de serie requerido";
       } else { if (!test_input($_POST["objns"])) {
         $objnsErr = "Texto no permitido";
         } else{ if ( strlen($_POST["objns"]) > 120 ) {
             $objnsErr = "120 caracteres permitidos";
           } else {
-            $objns = $_POST["objns"];
+            $objns_resul = $_POST["objns"];
           }        
         }      
       }
   
     if (empty($_POST["objdesc"])) {
-        $objdescErr = "Name is required";
+        $objdescErr = "Descripcion requerida";
       } else { if (!test_input($_POST["objdesc"])) {
         $objdescErr = "Texto no permitido";
         } else{ if ( strlen($_POST["objdesc"]) > 450 ) {
             $objdescErr = "450 caracteres permitidos";
           } else {
-            $objdesc = $_POST["objdesc"];
+            $objdesc_resul = $_POST["objdesc"];
           }        
         }      
       }
 
     if (empty($_POST["objdep"])) {
-        $objdepErr = "Name is required";
+        $objdepErr = "Departamento requerido";
       } else { if (!test_input($_POST["objdep"])) {
         $objdepErr = "Texto no permitido";
         } else{ if ( strlen($_POST["objdep"]) > 120 ) {
             $objdepErr = "120 caracteres permitidos";
           } else {
-            $objdep = $_POST["objdep"];
+            $objdep_resul = $_POST["objdep"];
           }        
         }      
       }
-  ) {
+    if ($objname_resul > 0 && $objns_resul > 0 && $objdesc_resul > 0 && $objdep_resul > 0 ) {
+      $sql = "INSERT INTO inventory (object_name, object_ns, object_description, object_id_department)
+      VALUES ('$objname_resul', '$objns_resul', '$objdesc_resul', '$objdep_resul')";
 
-    $sql = "INSERT INTO inventory (object_name, object_ns, object_description, object_id_department)
-      VALUES ('$objname', '$objns', '$objdesc', '$objdep')";
-      
-      if (mysqli_query($conn, $sql)) {
-          echo "New record created successfully";
-      } else {
-          echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-      }
+    if (mysqli_query($conn, $sql)) {
+      echo "New record created successfully";
+    } else {
+      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+    }
+    
+} 
+  
 
-  }
-}
+
+
+
+
+
     function test_input($data) {
       $data = trim($data);
       $data = stripslashes($data);
       $data = htmlspecialchars($data);
       return $data;
     }
-    
-      /*
-      }*/
+  
 
 
 ?>
