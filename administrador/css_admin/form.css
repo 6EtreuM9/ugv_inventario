@@ -1,22 +1,24 @@
+
 /* Style inputs with type="text", select elements and textareas */
 input[type=text], select, textarea {
     width: 100%; /* Full width */
     padding: 12px; /* Some padding */ 
     border: 1px solid #ccc; /* Gray border */
-    border-radius: 4px; /* Rounded borders */
-    box-sizing: border-box; /* Make sure that padding and width stays in place */
-    margin-top: 6px; /* Add a top margin */
-    margin-bottom: 16px; /* Bottom margin */
-    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+    border-radius: 12px; /* Rounded borders */
+    color: #3f3f3f;
 }
+  select, option{
+    color: #3f3f3f;
+  }
 
   /* Style the submit button with a specific background color etc */
-input[type=submit] {
+input[type=submit] {    
     background-color: #04AA6D;
+    width: 100px;
     color: white;
     padding: 12px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     cursor: pointer;
 }
 
@@ -27,10 +29,26 @@ input[type=submit]:hover {
 
   /* Add a background color and some padding around the form */
 
-  .container {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-    width: 600px;
-    margin: auto;
+  .container {      
+      margin: auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      height:100vh; 
+      padding: 20px;
   }
+   .container form {
+    width: 60%;
+    min-width: 280px;
+    margin: auto;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    align-content: center;
+   }
+    
+  .tabForm_insertObj{
+    width: 100%;
+  }
+

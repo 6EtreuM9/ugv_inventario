@@ -1,7 +1,7 @@
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
 
 <ul id="myUL" class="scroll_css">
-
+    
     <?php
 
     include "../connect/db.php";
@@ -18,8 +18,9 @@
                     <a href="#">'.$row['object_ns'].'</a>
                     <a href="#">'.$row['object_id_department'].'</a>
                     <div class="cont-button">
-                        <form action="" method="post" id="obj_update">  
-                            <button class="tooltip button_tooltip" href="#">
+                        <form action="update_object.php" method="post" id="obj_update">
+                            <input type="text" name="updid" value="'.$row['object_id'].'" style="display: none">
+                            <button type="submit" class="tooltip button_tooltip">
                                 <svg version="1.1" id="Capa_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 283.5 283.5" style="enable-background:new 0 0 283.5 283.5;" xml:space="preserve" height="20" width="20">
                                 <path d="M0.5,78.6c1.6-4.4,2.7-9.2,5-13.3C12.2,54,22.5,48,35.6,47.9c31.3-0.2,62.6-0.1,93.9-0.1c7.3,0,12.5,5.2,12.4,12
                                 c-0.1,6.7-5.3,11.6-12.5,11.6c-30.7,0-61.3,0-92,0c-8.7,0-13.3,4.6-13.3,13.2c0,54.1,0,108.1,0,162.2c0,8.6,4.6,13.2,13.1,13.2
@@ -36,8 +37,10 @@
                                 <span class="tooltiptext">Editar</span>
                             </button>
                         </form>
-                        <form action="" method="post" id="obj_delet">
-                            <button class="tooltip button_tooltip"  href="#">
+                        <form action="../connect/delete.php" method="post" id="obj_delet">
+                            <input type="text" name="id_delet" id="" value="'.$row['object_id'].'" style="display: none">
+                            <button type="submit" class="tooltip button_tooltip">
+                                
                                 <svg version="1.1" id="Capa_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 566.93 566.93" style="enable-background:new 0 0 566.93 566.93;" xml:space="preserve" height="20" width="20">
                                 <path d="M92.14,200.61c128.06,0,255.64,0,383.92,0c-0.63,14.17-1.2,27.98-1.85,41.78c-2.33,48.97-4.7,97.93-7.04,146.89
                                 c-2.08,43.5-4.05,87.01-6.26,130.5c-1.35,26.54-22.45,46.84-49.12,47c-40.18,0.24-80.37,0.07-120.56,0.08
@@ -64,16 +67,17 @@
                                 </svg>
                                 <span class="tooltiptext">Eliminar</span>
                             </button>
-                            </form>                
+                        </form>                
                     </div>
 
                 </li>';}
                 } else {
                     echo "0 results";
-                }
+                }                
                 $conn->close();
     ?>
 </ul>
-
+<div id="listR"></div>
 <script src='../js/list_user.js'></script>
+<script src="../js/confirm_delet.js"></script>
 
