@@ -1,3 +1,5 @@
+<?php require "../connect/autentication.php" ?>
+
 <!doctype html>
 <html lang="en">
   <head>

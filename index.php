@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +14,10 @@
     
 </head>
 <body>
+    <?php        
+        session_unset();// remove all session variables        
+        session_destroy();// destroy the session
+    ?>
     <?php     
     include 'public_components/navbar.php';
     ?>

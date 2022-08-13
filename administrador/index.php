@@ -1,8 +1,7 @@
 <?php
-if ($_POST) {
-    header('Location:/ugv_inventario/administrador/paginas/inicio.php');
-}
+session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +17,7 @@ if ($_POST) {
     <link rel="stylesheet" href="css_admin/button_closet.css">
 </head>
 <body>
+    
     <div>
     <?php $url_home = "http://".$_SERVER['HTTP_HOST']."/ugv_inventario/index.php"?> 
     <a href="<?php echo $url_home ?>">
@@ -30,14 +30,14 @@ if ($_POST) {
             <h1>Bienvenido</h1>
             <p>Administrador</p> <br>
             <div class="div_form_login">
-                <form method="POST">
+                <form action="connect/validar.php" method="POST" >
                     <label for="login_name">Usuario</label> <br>
-                    <input type="text" name="login_name" id="">
+                    <input type="text" name="login_name">
                     <br>
                     <label for="login_pass">Contraseña</label> <br>
-                    <input type="password" name="login_pass" id="">
+                    <input type="password" name="login_pass">
                     <br><br>
-                    <button type="submit" class="login_button_click" name="">Entrar</button>
+                    <button type="submit" class="login_button_click">Entrar</button>
                 </form>
             </div>
         </div>
